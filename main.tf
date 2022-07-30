@@ -98,7 +98,6 @@ resource "aws_security_group" "unused_security_group" {
   }
 
   tags = {
-    Name = "a group to nowhere"
+    Name = "A modified string to change git"
   }
 }
-
