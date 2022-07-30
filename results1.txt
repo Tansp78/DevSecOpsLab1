@@ -1,0 +1,532 @@
+SzePings-MacBook-Pro:can-i-tell-you-a-secret szepingtan$ git add main.tf && git commit -m "Add Terraform file"
+[INFO] Initializing environment for https://github.com/pre-commit/pre-commit-hooks.
+[INFO] Initializing environment for https://github.com/bridgecrewio/checkov.git.
+[INFO] Installing environment for https://github.com/pre-commit/pre-commit-hooks.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+[INFO] Installing environment for https://github.com/bridgecrewio/checkov.git.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+Check for added large files..............................................Passed
+Fix End of Files.........................................................Failed
+- hook id: end-of-file-fixer
+- exit code: 1
+- files were modified by this hook
+
+Fixing main.tf
+
+Check python ast.....................................(no files to check)Skipped
+Checkov..................................................................Failed
+- hook id: checkov
+- duration: 17.13s
+- exit code: 1
+
+[ secrets framework ]: 100% 1/1 [00:00<00:00, 14.25it/s, Current File Scanned=main.tf]
+[ terraform framework ]:  17% 1/6 [00:00<00:00, 86.92it/s, Current File Scanned=.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/mai[ terraform framework ]:  33% 2/6 [00:00<00:00, 65.59it/s, Current File Scanned=.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/out[ terraform framework ]:  50% 3/6 [00:00<00:00, 97.06it/s, Current File Scanned=.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/var[ terraform framework ]:  67% 4/6 [00:00<00:00, 127.73it/s, Current File Scanned=.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/ve[ terraform framework ]:  83% 5/6 [00:00<00:00, 157.65it/s, Current File Scanned=.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/vpc-flow-logs.tf[/Users/szepingtan/DevSecOps/Lab1/can-i-tell-you-a-secret/main.tf#[ terraform framework ]: 100% 6/6 [00:00<00:00, 166.67it/s, Current File Scanned=.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/vpc-flow-logs.tf[/Users/szepingtan/DevSecOps/Lab1/can-i-tell-you-a-secret/main.tf#0]]
+
+
+       _               _              
+   ___| |__   ___  ___| | _______   __
+  / __| '_ \ / _ \/ __| |/ / _ \ \ / /
+ | (__| | | |  __/ (__|   < (_) \ V / 
+  \___|_| |_|\___|\___|_|\_\___/ \_/  
+                                      
+By bridgecrew.io | version: 2.1.37 
+Update available 2.1.37 -> 2.1.82
+Run pip3 install -U checkov to update 
+
+
+terraform scan results:
+
+Passed checks: 28, Failed checks: 13, Skipped checks: 0
+
+Check: CKV_AWS_260: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 80"
+	PASSED for resource: aws_security_group.unused_security_group
+	File: /main.tf:78-103
+Check: CKV_AWS_25: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389"
+	PASSED for resource: aws_security_group.unused_security_group
+	File: /main.tf:78-103
+	Guide: https://docs.bridgecrew.io/docs/networking_2
+Check: CKV_AWS_130: "Ensure VPC subnets do not assign public IP by default"
+	PASSED for resource: module.vpc.aws_subnet.private
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:380-401
+	Calling File: /main.tf:26-39
+	Guide: https://docs.bridgecrew.io/docs/ensure-vpc-subnets-do-not-assign-public-ip-by-default
+Check: CKV_AWS_130: "Ensure VPC subnets do not assign public IP by default"
+	PASSED for resource: module.vpc.aws_subnet.outpost
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:407-429
+	Calling File: /main.tf:26-39
+	Guide: https://docs.bridgecrew.io/docs/ensure-vpc-subnets-do-not-assign-public-ip-by-default
+Check: CKV_AWS_130: "Ensure VPC subnets do not assign public IP by default"
+	PASSED for resource: module.vpc.aws_subnet.database
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:435-456
+	Calling File: /main.tf:26-39
+	Guide: https://docs.bridgecrew.io/docs/ensure-vpc-subnets-do-not-assign-public-ip-by-default
+Check: CKV_AWS_130: "Ensure VPC subnets do not assign public IP by default"
+	PASSED for resource: module.vpc.aws_subnet.redshift
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:478-499
+	Calling File: /main.tf:26-39
+	Guide: https://docs.bridgecrew.io/docs/ensure-vpc-subnets-do-not-assign-public-ip-by-default
+Check: CKV_AWS_130: "Ensure VPC subnets do not assign public IP by default"
+	PASSED for resource: module.vpc.aws_subnet.elasticache
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:519-540
+	Calling File: /main.tf:26-39
+	Guide: https://docs.bridgecrew.io/docs/ensure-vpc-subnets-do-not-assign-public-ip-by-default
+Check: CKV_AWS_130: "Ensure VPC subnets do not assign public IP by default"
+	PASSED for resource: module.vpc.aws_subnet.intra
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:560-581
+	Calling File: /main.tf:26-39
+	Guide: https://docs.bridgecrew.io/docs/ensure-vpc-subnets-do-not-assign-public-ip-by-default
+Check: CKV2_AWS_35: "AWS NAT Gateways should be utilized for the default route"
+	PASSED for resource: aws_route_table.public
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:189-199
+Check: CKV2_AWS_35: "AWS NAT Gateways should be utilized for the default route"
+	PASSED for resource: aws_route.public_internet_gateway
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:201-211
+Check: CKV2_AWS_35: "AWS NAT Gateways should be utilized for the default route"
+	PASSED for resource: aws_route.public_internet_gateway_ipv6
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:213-219
+Check: CKV2_AWS_35: "AWS NAT Gateways should be utilized for the default route"
+	PASSED for resource: aws_route_table.private
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:226-241
+Check: CKV2_AWS_35: "AWS NAT Gateways should be utilized for the default route"
+	PASSED for resource: aws_route_table.database
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:247-262
+Check: CKV2_AWS_35: "AWS NAT Gateways should be utilized for the default route"
+	PASSED for resource: aws_route.database_internet_gateway
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:264-274
+Check: CKV2_AWS_35: "AWS NAT Gateways should be utilized for the default route"
+	PASSED for resource: aws_route.database_nat_gateway
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:276-286
+Check: CKV2_AWS_35: "AWS NAT Gateways should be utilized for the default route"
+	PASSED for resource: aws_route.database_ipv6_egress
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:288-298
+Check: CKV2_AWS_35: "AWS NAT Gateways should be utilized for the default route"
+	PASSED for resource: aws_route_table.redshift
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:304-314
+Check: CKV2_AWS_35: "AWS NAT Gateways should be utilized for the default route"
+	PASSED for resource: aws_route_table.elasticache
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:320-330
+Check: CKV2_AWS_35: "AWS NAT Gateways should be utilized for the default route"
+	PASSED for resource: aws_route_table.intra
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:336-346
+Check: CKV2_AWS_35: "AWS NAT Gateways should be utilized for the default route"
+	PASSED for resource: aws_route.private_nat_gateway
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:1044-1054
+Check: CKV2_AWS_35: "AWS NAT Gateways should be utilized for the default route"
+	PASSED for resource: aws_route.private_ipv6_egress
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:1056-1062
+Check: CKV2_AWS_1: "Ensure that all NACL are attached to subnets"
+	PASSED for resource: aws_network_acl.elasticache
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:946-957
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-all-nacl-are-attached-to-subnets
+Check: CKV2_AWS_1: "Ensure that all NACL are attached to subnets"
+	PASSED for resource: aws_network_acl.private
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:691-702
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-all-nacl-are-attached-to-subnets
+Check: CKV2_AWS_1: "Ensure that all NACL are attached to subnets"
+	PASSED for resource: aws_network_acl.database
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:844-855
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-all-nacl-are-attached-to-subnets
+Check: CKV2_AWS_1: "Ensure that all NACL are attached to subnets"
+	PASSED for resource: aws_network_acl.outpost
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:742-753
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-all-nacl-are-attached-to-subnets
+Check: CKV2_AWS_1: "Ensure that all NACL are attached to subnets"
+	PASSED for resource: aws_network_acl.public
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:640-651
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-all-nacl-are-attached-to-subnets
+Check: CKV2_AWS_1: "Ensure that all NACL are attached to subnets"
+	PASSED for resource: aws_network_acl.redshift
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:895-906
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-all-nacl-are-attached-to-subnets
+Check: CKV2_AWS_1: "Ensure that all NACL are attached to subnets"
+	PASSED for resource: aws_network_acl.intra
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:793-804
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-all-nacl-are-attached-to-subnets
+Check: CKV_AWS_41: "Ensure no hard coded AWS access key and secret key exists in provider"
+	FAILED for resource: aws.default
+	File: /main.tf:1-5
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_secrets_5
+
+		1 | provider "aws" {
+		2 |   region = local.region
+		3 |   access_key = "AKIAV***************"
+		4 |   secret_key = "PL8K8F5BmG******************************"
+		5 | }
+
+Check: CKV_AWS_260: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 80"
+	FAILED for resource: aws_security_group.allow_everything
+	File: /main.tf:51-76
+
+		51 | resource "aws_security_group" "allow_everything" {
+		52 |   name        = "allow_everything"
+		53 |   description = ""
+		54 |   vpc_id      = module.vpc.vpc_id
+		55 | 
+		56 |   ingress {
+		57 |     description      = "TLS from VPC"
+		58 |     from_port        = 0
+		59 |     to_port          = 0
+		60 |     protocol         = "-1"
+		61 |     cidr_blocks      = ["0.0.0.0/0"]
+		62 |     ipv6_cidr_blocks = ["::/0"]
+		63 |   }
+		64 | 
+		65 |   egress {
+		66 |     from_port        = 0
+		67 |     to_port          = 0
+		68 |     protocol         = "-1"
+		69 |     cidr_blocks      = ["0.0.0.0/0"]
+		70 |     ipv6_cidr_blocks = ["::/0"]
+		71 |   }
+		72 | 
+		73 |   tags = {
+		74 |     Name = "allow_everything"
+		75 |   }
+		76 | }
+
+Check: CKV_AWS_24: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22"
+	FAILED for resource: aws_security_group.allow_everything
+	File: /main.tf:51-76
+	Guide: https://docs.bridgecrew.io/docs/networking_1-port-security
+
+		51 | resource "aws_security_group" "allow_everything" {
+		52 |   name        = "allow_everything"
+		53 |   description = ""
+		54 |   vpc_id      = module.vpc.vpc_id
+		55 | 
+		56 |   ingress {
+		57 |     description      = "TLS from VPC"
+		58 |     from_port        = 0
+		59 |     to_port          = 0
+		60 |     protocol         = "-1"
+		61 |     cidr_blocks      = ["0.0.0.0/0"]
+		62 |     ipv6_cidr_blocks = ["::/0"]
+		63 |   }
+		64 | 
+		65 |   egress {
+		66 |     from_port        = 0
+		67 |     to_port          = 0
+		68 |     protocol         = "-1"
+		69 |     cidr_blocks      = ["0.0.0.0/0"]
+		70 |     ipv6_cidr_blocks = ["::/0"]
+		71 |   }
+		72 | 
+		73 |   tags = {
+		74 |     Name = "allow_everything"
+		75 |   }
+		76 | }
+
+Check: CKV_AWS_23: "Ensure every security groups rule has a description"
+	FAILED for resource: aws_security_group.allow_everything
+	File: /main.tf:51-76
+	Guide: https://docs.bridgecrew.io/docs/networking_31
+
+		51 | resource "aws_security_group" "allow_everything" {
+		52 |   name        = "allow_everything"
+		53 |   description = ""
+		54 |   vpc_id      = module.vpc.vpc_id
+		55 | 
+		56 |   ingress {
+		57 |     description      = "TLS from VPC"
+		58 |     from_port        = 0
+		59 |     to_port          = 0
+		60 |     protocol         = "-1"
+		61 |     cidr_blocks      = ["0.0.0.0/0"]
+		62 |     ipv6_cidr_blocks = ["::/0"]
+		63 |   }
+		64 | 
+		65 |   egress {
+		66 |     from_port        = 0
+		67 |     to_port          = 0
+		68 |     protocol         = "-1"
+		69 |     cidr_blocks      = ["0.0.0.0/0"]
+		70 |     ipv6_cidr_blocks = ["::/0"]
+		71 |   }
+		72 | 
+		73 |   tags = {
+		74 |     Name = "allow_everything"
+		75 |   }
+		76 | }
+
+Check: CKV_AWS_25: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389"
+	FAILED for resource: aws_security_group.allow_everything
+	File: /main.tf:51-76
+	Guide: https://docs.bridgecrew.io/docs/networking_2
+
+		51 | resource "aws_security_group" "allow_everything" {
+		52 |   name        = "allow_everything"
+		53 |   description = ""
+		54 |   vpc_id      = module.vpc.vpc_id
+		55 | 
+		56 |   ingress {
+		57 |     description      = "TLS from VPC"
+		58 |     from_port        = 0
+		59 |     to_port          = 0
+		60 |     protocol         = "-1"
+		61 |     cidr_blocks      = ["0.0.0.0/0"]
+		62 |     ipv6_cidr_blocks = ["::/0"]
+		63 |   }
+		64 | 
+		65 |   egress {
+		66 |     from_port        = 0
+		67 |     to_port          = 0
+		68 |     protocol         = "-1"
+		69 |     cidr_blocks      = ["0.0.0.0/0"]
+		70 |     ipv6_cidr_blocks = ["::/0"]
+		71 |   }
+		72 | 
+		73 |   tags = {
+		74 |     Name = "allow_everything"
+		75 |   }
+		76 | }
+
+Check: CKV_AWS_24: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22"
+	FAILED for resource: aws_security_group.unused_security_group
+	File: /main.tf:78-103
+	Guide: https://docs.bridgecrew.io/docs/networking_1-port-security
+
+		78  | resource "aws_security_group" "unused_security_group" {
+		79  |   name        = "a group to nowhere"
+		80  |   description = ""
+		81  |   vpc_id      = module.vpc.vpc_id
+		82  | 
+		83  |   ingress {
+		84  |     description      = "TLS from VPC"
+		85  |     from_port        = 22
+		86  |     to_port          = 22
+		87  |     protocol         = "tcp"
+		88  |     cidr_blocks      = ["0.0.0.0/0"]
+		89  |     ipv6_cidr_blocks = ["::/0"]
+		90  |   }
+		91  | 
+		92  |   egress {
+		93  |     from_port        = 0
+		94  |     to_port          = 0
+		95  |     protocol         = "-1"
+		96  |     cidr_blocks      = ["0.0.0.0/0"]
+		97  |     ipv6_cidr_blocks = ["::/0"]
+		98  |   }
+		99  | 
+		100 |   tags = {
+		101 |     Name = "a group to nowhere"
+		102 |   }
+		103 | }
+
+Check: CKV_AWS_23: "Ensure every security groups rule has a description"
+	FAILED for resource: aws_security_group.unused_security_group
+	File: /main.tf:78-103
+	Guide: https://docs.bridgecrew.io/docs/networking_31
+
+		78  | resource "aws_security_group" "unused_security_group" {
+		79  |   name        = "a group to nowhere"
+		80  |   description = ""
+		81  |   vpc_id      = module.vpc.vpc_id
+		82  | 
+		83  |   ingress {
+		84  |     description      = "TLS from VPC"
+		85  |     from_port        = 22
+		86  |     to_port          = 22
+		87  |     protocol         = "tcp"
+		88  |     cidr_blocks      = ["0.0.0.0/0"]
+		89  |     ipv6_cidr_blocks = ["::/0"]
+		90  |   }
+		91  | 
+		92  |   egress {
+		93  |     from_port        = 0
+		94  |     to_port          = 0
+		95  |     protocol         = "-1"
+		96  |     cidr_blocks      = ["0.0.0.0/0"]
+		97  |     ipv6_cidr_blocks = ["::/0"]
+		98  |   }
+		99  | 
+		100 |   tags = {
+		101 |     Name = "a group to nowhere"
+		102 |   }
+		103 | }
+
+Check: CKV_AWS_130: "Ensure VPC subnets do not assign public IP by default"
+	FAILED for resource: module.vpc.aws_subnet.public
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:352-374
+	Calling File: /main.tf:26-39
+	Guide: https://docs.bridgecrew.io/docs/ensure-vpc-subnets-do-not-assign-public-ip-by-default
+
+		352 | resource "aws_subnet" "public" {
+		353 |   count = local.create_vpc && length(var.public_subnets) > 0 && (false == var.one_nat_gateway_per_az || length(var.public_subnets) >= length(var.azs)) ? length(var.public_subnets) : 0
+		354 | 
+		355 |   vpc_id                          = local.vpc_id
+		356 |   cidr_block                      = element(concat(var.public_subnets, [""]), count.index)
+		357 |   availability_zone               = length(regexall("^[a-z]{2}-", element(var.azs, count.index))) > 0 ? element(var.azs, count.index) : null
+		358 |   availability_zone_id            = length(regexall("^[a-z]{2}-", element(var.azs, count.index))) == 0 ? element(var.azs, count.index) : null
+		359 |   map_public_ip_on_launch         = var.map_public_ip_on_launch
+		360 |   assign_ipv6_address_on_creation = var.public_subnet_assign_ipv6_address_on_creation == null ? var.assign_ipv6_address_on_creation : var.public_subnet_assign_ipv6_address_on_creation
+		361 | 
+		362 |   ipv6_cidr_block = var.enable_ipv6 && length(var.public_subnet_ipv6_prefixes) > 0 ? cidrsubnet(aws_vpc.this[0].ipv6_cidr_block, 8, var.public_subnet_ipv6_prefixes[count.index]) : null
+		363 | 
+		364 |   tags = merge(
+		365 |     {
+		366 |       "Name" = format(
+		367 |         "${var.name}-${var.public_subnet_suffix}-%s",
+		368 |         element(var.azs, count.index),
+		369 |       )
+		370 |     },
+		371 |     var.tags,
+		372 |     var.public_subnet_tags,
+		373 |   )
+		374 | }
+
+Check: CKV2_AWS_5: "Ensure that Security Groups are attached to another resource"
+	FAILED for resource: aws_security_group.unused_security_group
+	File: /main.tf:78-103
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-security-groups-are-attached-to-ec2-instances-or-elastic-network-interfaces-enis
+
+		78  | resource "aws_security_group" "unused_security_group" {
+		79  |   name        = "a group to nowhere"
+		80  |   description = ""
+		81  |   vpc_id      = module.vpc.vpc_id
+		82  | 
+		83  |   ingress {
+		84  |     description      = "TLS from VPC"
+		85  |     from_port        = 22
+		86  |     to_port          = 22
+		87  |     protocol         = "tcp"
+		88  |     cidr_blocks      = ["0.0.0.0/0"]
+		89  |     ipv6_cidr_blocks = ["::/0"]
+		90  |   }
+		91  | 
+		92  |   egress {
+		93  |     from_port        = 0
+		94  |     to_port          = 0
+		95  |     protocol         = "-1"
+		96  |     cidr_blocks      = ["0.0.0.0/0"]
+		97  |     ipv6_cidr_blocks = ["::/0"]
+		98  |   }
+		99  | 
+		100 |   tags = {
+		101 |     Name = "a group to nowhere"
+		102 |   }
+		103 | }
+
+Check: CKV2_AWS_5: "Ensure that Security Groups are attached to another resource"
+	FAILED for resource: aws_security_group.allow_everything
+	File: /main.tf:51-76
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-security-groups-are-attached-to-ec2-instances-or-elastic-network-interfaces-enis
+
+		51 | resource "aws_security_group" "allow_everything" {
+		52 |   name        = "allow_everything"
+		53 |   description = ""
+		54 |   vpc_id      = module.vpc.vpc_id
+		55 | 
+		56 |   ingress {
+		57 |     description      = "TLS from VPC"
+		58 |     from_port        = 0
+		59 |     to_port          = 0
+		60 |     protocol         = "-1"
+		61 |     cidr_blocks      = ["0.0.0.0/0"]
+		62 |     ipv6_cidr_blocks = ["::/0"]
+		63 |   }
+		64 | 
+		65 |   egress {
+		66 |     from_port        = 0
+		67 |     to_port          = 0
+		68 |     protocol         = "-1"
+		69 |     cidr_blocks      = ["0.0.0.0/0"]
+		70 |     ipv6_cidr_blocks = ["::/0"]
+		71 |   }
+		72 | 
+		73 |   tags = {
+		74 |     Name = "allow_everything"
+		75 |   }
+		76 | }
+
+Check: CKV2_AWS_11: "Ensure VPC flow logging is enabled in all VPCs"
+	FAILED for resource: aws_vpc.this
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:20-36
+	Guide: https://docs.bridgecrew.io/docs/logging_9-enable-vpc-flow-logging
+
+		20 | resource "aws_vpc" "this" {
+		21 |   count = local.create_vpc ? 1 : 0
+		22 | 
+		23 |   cidr_block                       = var.cidr
+		24 |   instance_tenancy                 = var.instance_tenancy
+		25 |   enable_dns_hostnames             = var.enable_dns_hostnames
+		26 |   enable_dns_support               = var.enable_dns_support
+		27 |   enable_classiclink               = var.enable_classiclink
+		28 |   enable_classiclink_dns_support   = var.enable_classiclink_dns_support
+		29 |   assign_generated_ipv6_cidr_block = var.enable_ipv6
+		30 | 
+		31 |   tags = merge(
+		32 |     { "Name" = var.name },
+		33 |     var.tags,
+		34 |     var.vpc_tags,
+		35 |   )
+		36 | }
+
+Check: CKV2_AWS_19: "Ensure that all EIP addresses allocated to a VPC are attached to EC2 instances"
+	FAILED for resource: aws_eip.nat
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:1001-1016
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-all-eip-addresses-allocated-to-a-vpc-are-attached-to-ec2-instances
+
+		1001 | resource "aws_eip" "nat" {
+		1002 |   count = local.create_vpc && var.enable_nat_gateway && false == var.reuse_nat_ips ? local.nat_gateway_count : 0
+		1003 | 
+		1004 |   vpc = true
+		1005 | 
+		1006 |   tags = merge(
+		1007 |     {
+		1008 |       "Name" = format(
+		1009 |         "${var.name}-%s",
+		1010 |         element(var.azs, var.single_nat_gateway ? 0 : count.index),
+		1011 |       )
+		1012 |     },
+		1013 |     var.tags,
+		1014 |     var.nat_eip_tags,
+		1015 |   )
+		1016 | }
+
+Check: CKV2_AWS_12: "Ensure the default security group of every VPC restricts all traffic"
+	FAILED for resource: aws_vpc.this
+	File: /.external_modules/github.com/terraform-aws-modules/terraform-aws-vpc/v3.14.2/main.tf:20-36
+	Guide: https://docs.bridgecrew.io/docs/networking_4
+
+		20 | resource "aws_vpc" "this" {
+		21 |   count = local.create_vpc ? 1 : 0
+		22 | 
+		23 |   cidr_block                       = var.cidr
+		24 |   instance_tenancy                 = var.instance_tenancy
+		25 |   enable_dns_hostnames             = var.enable_dns_hostnames
+		26 |   enable_dns_support               = var.enable_dns_support
+		27 |   enable_classiclink               = var.enable_classiclink
+		28 |   enable_classiclink_dns_support   = var.enable_classiclink_dns_support
+		29 |   assign_generated_ipv6_cidr_block = var.enable_ipv6
+		30 | 
+		31 |   tags = merge(
+		32 |     { "Name" = var.name },
+		33 |     var.tags,
+		34 |     var.vpc_tags,
+		35 |   )
+		36 | }
+
+secrets scan results:
+
+Passed checks: 0, Failed checks: 2, Skipped checks: 0
+
+Check: CKV_SECRET_2: "AWS Access Key"
+	FAILED for resource: 3f6e9bc0b6741f3f28b55b7710cadc70df1d403d
+	File: /main.tf:3-4
+	Guide: https://docs.bridgecrew.io/docs/git_secrets_2
+
+		3 |   access_key = "AKIAV***************"
+
+Check: CKV_SECRET_6: "Base64 High Entropy String"
+	FAILED for resource: 7aeb0e34349f5f56fe75f1a4219df803c7ad7c0c
+	File: /main.tf:4-5
+	Guide: https://docs.bridgecrew.io/docs/git_secrets_6
+
+		4 |   secret_key = "PL8K8F5BmG******************************"
+
+
+
+
+
