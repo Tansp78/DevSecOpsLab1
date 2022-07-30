@@ -1,7 +1,5 @@
 provider "aws" {
   region = local.region
-  access_key = "AKIAVDLEKJZGJEWT6NWG"
-  secret_key = "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"
 }
 
 locals {
