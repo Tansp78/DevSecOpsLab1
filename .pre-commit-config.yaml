@@ -1,0 +1,14 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+    -   id: check-added-large-files
+    -   id: end-of-file-fixer
+    -   id: check-ast
+
+- repo: https://github.com/bridgecrewio/checkov.git
+  rev: '658d65d8767f660939936c85c46d358b19b2c6c7' # Latest GIT SHA at writing
+  hooks:
+    - id: checkov
+      verbose: true
+      args: [--download-external-modules, 'true', --skip-check, 'CKV2_AWS_12']
